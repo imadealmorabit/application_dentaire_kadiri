@@ -157,4 +157,15 @@ class Produits
     {
         return $this->designation;
     }
+
+    /**
+     * Get prixTotal
+     *
+     * @return integer
+     */
+    public function getprixTotal()
+  {
+    $prix = $this->getPrixUnitaire() * $this->getQuantite();
+    return $prix;
+  }
 }

@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Produits list</h1>
+    <h1>Lste de produits</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Identifiant</th>
                 <th>Reference</th>
                 <th>Designation</th>
                 <th>Quantite</th>
-                <th>Prixunitaire</th>
+                <th>Prix unitaire</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('produits_new') }}">Create a new entry</a>
+            <a href="{{ path('produits_new') }}">Entrer un produit</a>
         </li>
     </ul>
 {% endblock %}

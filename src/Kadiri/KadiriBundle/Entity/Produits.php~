@@ -133,28 +133,4 @@ class Produits
     {
         return $this->prixUnitaire;
     }
-
-    /**
-     * Set designation
-     *
-     * @param string $designation
-     *
-     * @return Produits
-     */
-    public function setDesignation($designation)
-    {
-        $this->designation = $designation;
-
-        return $this;
-    }
-
-    /**
-     * Get designation
-     *
-     * @return string
-     */
-    public function getDesignation()
-    {
-        return $this->designation;
-    }
 }

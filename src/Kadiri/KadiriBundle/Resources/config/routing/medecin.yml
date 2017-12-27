@@ -1,0 +1,24 @@
+medecin_index:
+    path:     /
+    defaults: { _controller: "KadiriBundle:medecin:index" }
+    methods:  GET
+
+medecin_show:
+    path:     /{id}/show
+    defaults: { _controller: "KadiriBundle:medecin:show" }
+    methods:  GET
+
+medecin_new:
+    path:     /new
+    defaults: { _controller: "KadiriBundle:medecin:new" }
+    methods:  [GET, POST]
+
+medecin_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KadiriBundle:medecin:edit" }
+    methods:  [GET, POST]
+
+medecin_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KadiriBundle:medecin:delete" }
+    methods:  DELETE

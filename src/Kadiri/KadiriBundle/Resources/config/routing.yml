@@ -5,3 +5,7 @@ kadiri_produits:
 kadiri_homepage:
     path:     /
     defaults: { _controller: KadiriBundle:Default:index }
+
+kadiri_medecin:
+        resource: "@KadiriBundle/Resources/config/routing/medecin.yml"
+        prefix:   /medecin

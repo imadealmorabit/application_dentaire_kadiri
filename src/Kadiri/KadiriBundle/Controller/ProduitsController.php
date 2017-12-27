@@ -125,4 +125,9 @@ class ProduitsController extends Controller
             ->getForm()
         ;
     }
+
+    public function rechercheAction(Produits $produit)
+    {
+        
+    }
 }

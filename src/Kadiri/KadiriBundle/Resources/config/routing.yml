@@ -1,3 +1,7 @@
+kadiri_produits:
+    resource: "@KadiriBundle/Resources/config/routing/produits.yml"
+    prefix:   /produits
+
 kadiri_homepage:
     path:     /
     defaults: { _controller: KadiriBundle:Default:index }

@@ -101,45 +101,4 @@ class commande
     {
         return $this->medecin;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->produits = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add produit
-     *
-     * @param \Kadiri\KadiriBundle\Entity\Produits $produit
-     *
-     * @return commande
-     */
-    public function addProduit(\Kadiri\KadiriBundle\Entity\Produits $produit)
-    {
-        $this->produits[] = $produit;
-
-        return $this;
-    }
-
-    /**
-     * Remove produit
-     *
-     * @param \Kadiri\KadiriBundle\Entity\Produits $produit
-     */
-    public function removeProduit(\Kadiri\KadiriBundle\Entity\Produits $produit)
-    {
-        $this->produits->removeElement($produit);
-    }
-
-    /**
-     * Get produits
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProduits()
-    {
-        return $this->produits;
-    }
 }

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lste de produits</h1>
+    <h1>Lste des produits</h1>
 
     <table>
         <thead>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('produits_show', { 'id': produit.id }) }}">show</a>
+                            <a href="{{ path('produits_show', { 'id': produit.id }) }}">Montrer</a>
                         </li>
                         <li>
-                            <a href="{{ path('produits_edit', { 'id': produit.id }) }}">edit</a>
+                            <a href="{{ path('produits_edit', { 'id': produit.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>

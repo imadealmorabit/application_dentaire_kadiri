@@ -1,0 +1,3 @@
+kadiri_homepage:
+    path:     /
+    defaults: { _controller: KadiriBundle:Default:index }

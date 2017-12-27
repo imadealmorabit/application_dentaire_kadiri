@@ -24,7 +24,7 @@ class ProduitsController extends Controller
 
         $produits = $em->getRepository('KadiriBundle:Produits')->findAll();
 
-        return $this->render('produits/index.html.twig', array(
+        return $this->render('KadiriBundle:produits:index.html.twig', array(
             'produits' => $produits,
         ));
     }
@@ -47,7 +47,7 @@ class ProduitsController extends Controller
             return $this->redirectToRoute('produits_show', array('id' => $produit->getId()));
         }
 
-        return $this->render('produits/new.html.twig', array(
+        return $this->render('KadiriBundle:produits:new.html.twig', array(
             'produit' => $produit,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class ProduitsController extends Controller
     {
         $deleteForm = $this->createDeleteForm($produit);
 
-        return $this->render('produits/show.html.twig', array(
+        return $this->render('KadiriBundle:produits:show.html.twig', array(
             'produit' => $produit,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class ProduitsController extends Controller
             return $this->redirectToRoute('produits_edit', array('id' => $produit->getId()));
         }
 
-        return $this->render('produits/edit.html.twig', array(
+        return $this->render('KadiriBundle:produits:edit.html.twig', array(
             'produit' => $produit,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

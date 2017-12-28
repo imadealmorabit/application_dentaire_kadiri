@@ -160,46 +160,4 @@ class medecin
      * @ORM\OneToMany(targetEntity="Kadiri\KadiriBundle\Entity\commande", mappedBy="medecin")
      */
      private $commandes;
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->commandes = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add commande
-     *
-     * @param \Kadiri\KadiriBundle\Entity\commande $commande
-     *
-     * @return medecin
-     */
-    public function addCommande(\Kadiri\KadiriBundle\Entity\commande $commande)
-    {
-        $this->commandes[] = $commande;
-        $commande->setMedecin($this);
-
-        return $this;
-    }
-
-    /**
-     * Remove commande
-     *
-     * @param \Kadiri\KadiriBundle\Entity\commande $commande
-     */
-    public function removeCommande(\Kadiri\KadiriBundle\Entity\commande $commande)
-    {
-        $this->commandes->removeElement($commande);
-    }
-
-    /**
-     * Get commandes
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCommandes()
-    {
-        return $this->commandes;
-    }
 }

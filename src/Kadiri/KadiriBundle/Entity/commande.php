@@ -22,7 +22,7 @@ class commande
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Kadiri\KadiriBundle\Entity\medecin")
+     * @ORM\ManyToOne(targetEntity="Kadiri\KadiriBundle\Entity\medecin" , inversedBy="commandes")
      * @ORM\JoinColumn(nullable=false)
      */
     private $medecin;

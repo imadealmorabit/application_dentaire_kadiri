@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des Clients</h1>
+
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Numero Client</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medecin in medecins %}
+            <tr>
+                <td>{{ medecin.identifiant }}</td>
+                <td>{{ medecin.nom }}</td>
+                <td>{{ medecin.prenom }}</td>
+                <td>{{ medecin.adresse }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('medecin_show', { 'id': medecin.id }) }}">Montrer</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('medecin_edit', { 'id': medecin.id }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('medecin_new') }}">Ajouter un nouveau client</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -9,3 +9,7 @@ kadiri_homepage:
 kadiri_medecin:
         resource: "@KadiriBundle/Resources/config/routing/medecin.yml"
         prefix:   /medecin
+
+kadiri_commande:
+        resource: "@KadiriBundle/Resources/config/routing/commande.yml"
+        prefix:   /commande

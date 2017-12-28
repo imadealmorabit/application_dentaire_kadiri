@@ -6,7 +6,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Kadiri\KadiriBundle\Entity\medecin;
-use Kadiri\KadiriBundle\Form\medecinType;
+use Kadiri\KadiriBundle\Entity\commande;
+use Kadiri\KadiriBundle\Form\commandeType;
 
 /**
  * commande controller.
@@ -35,20 +36,20 @@ class commandeController extends Controller
      */
     public function newAction(Request $request)
     {
-        $medecin = new medecin();
-        $form = $this->createForm('Kadiri\KadiriBundle\Form\medecinType', $medecin);
+        $commande = new commande();
+        $form = $this->createForm('Kadiri\KadiriBundle\Form\commande_newType', $commande);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($medecin);
+            $em->persist($commande);
             $em->flush();
 
-            return $this->redirectToRoute('commande_show', array('id' => $medecin->getId()));
+            return $this->redirectToRoute('commande_show', array('id' => $commande->getId()));
         }
 
         return $this->render('KadiriBundle:commande:new.html.twig', array(
-            'medecin' => $medecin,
+            'commande' => $commande,
             'form' => $form->createView(),
         ));
     }
@@ -74,7 +75,7 @@ class commandeController extends Controller
     public function editAction(Request $request, medecin $medecin)
     {
         $deleteForm = $this->createDeleteForm($medecin);
-        $editForm = $this->createForm('Kadiri\KadiriBundle\Form\medecinType', $medecin);
+        $editForm = $this->createForm('Kadiri\KadiriBundle\Form\commandeType', $medecin);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

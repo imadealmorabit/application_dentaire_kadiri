@@ -58,13 +58,13 @@ class commandeController extends Controller
      * Finds and displays a medecin entity.
      *
      */
-    public function showAction(medecin $medecin)
+    public function showAction(commande $commande)
     {
-        $deleteForm = $this->createDeleteForm($medecin);
+
 
         return $this->render('KadiriBundle:commande:show.html.twig', array(
-            'medecin' => $medecin,
-            'delete_form' => $deleteForm->createView(),
+            'commande' => $commande,
+
         ));
     }
 

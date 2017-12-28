@@ -8,33 +8,54 @@
             
             <tr>
                 <th>Numero Client</th>
-                <td>{{ medecin.identifiant }}</td>
+                <td>{{ commande.medecin.identifiant }}</td>
             </tr>
             <tr>
                 <th>Nom</th>
-                <td>{{ medecin.nom }}</td>
+                <td>{{ commande.medecin.nom }}</td>
             </tr>
             <tr>
                 <th>Prenom</th>
-                <td>{{ medecin.prenom }}</td>
+                <td>{{ commande.medecin.prenom }}</td>
             </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ medecin.adresse }}</td>
-            </tr>
+             
         </tbody>
     </table>
+
+            <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Reference Produit</th>
+                <th>Designation</th>
+                <th>Quantite</th>
+                <th>Prix unitaire</th>
+                <th>Prix total</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in commande.produits %}
+            <tr>
+                <td>{{ produit.reference }}</td>
+                <td>{{ produit.designation }}</td>
+                <td>{{ produit.quantite }}</td>
+                <td>{{ produit.prixUnitaire }}</td>
+                <td>{{ produit.prixTotal }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+        
 
     <ul>
         
         <li>
-            <a href="{{ path('medecin_edit', { 'id': medecin.id }) }}">Modifier</a>
+            <a href="{{ path('commande_edit', { 'id': commande.medecin.identifiant }) }}">Modifier</a>
         </li>
-        <br>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
+       
     </ul>
 {% endblock %}

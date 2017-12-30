@@ -24,8 +24,14 @@ class ProduitsController extends Controller
 
         $produits = $em->getRepository('KadiriBundle:Produits')->findAll();
 
+        $prixTotal = 0;
+        foreach($produits as $produit) {
+        $prixTotal += $produit->getprixTotal();
+        }
+
         return $this->render('KadiriBundle:produits:index.html.twig', array(
             'produits' => $produits,
+            'prixTotal' => $prixTotal,
         ));
     }
 

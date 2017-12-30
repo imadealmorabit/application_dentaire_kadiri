@@ -1,22 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>medecin edit</h1>
+    <h1>Modifier Client</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <ul>  
-       <li>
-        <input type="submit" value="Modifier" />
+        <br>
+       <div class="row">
+            
+
+            <div class="span1">
+
+        <input type="submit" value="Modifier" class="btn btn-primary"/>
     {{ form_end(edit_form) }}
-    </li>
-    </ul>
-    <ul>
-        
-        <li>
+    </div>
+
+            
+
+            <div class="span1">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Spprimer">
+                <input type="submit" value="Spprimer" class="btn btn-primary">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+         </div>
 {% endblock %}

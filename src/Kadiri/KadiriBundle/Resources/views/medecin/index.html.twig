@@ -34,10 +34,14 @@
         {% endfor %}
         </tbody>
     </table>
+<div class="row">
+            
 
-    <ul>
-        <li>
-            <a href="{{ path('medecin_new') }}">Ajouter un nouveau client</a>
-        </li>
-    </ul>
+            <div class="span3">
+    
+            <a class="btn btn-primary" href="{{ path('medecin_new') }}">Ajouter un nouveau client</a>
+
+            </div>
+</div>
+       
 {% endblock %}

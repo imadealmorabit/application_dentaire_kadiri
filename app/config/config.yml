@@ -32,6 +32,14 @@ framework:
     http_method_override: true
     assets: ~
 
+fos_user:
+    db_driver: orm 
+    firewall_name: main
+    user_class: Utilisateurs\UtilisateursBundle\Entity\Utilisateurs
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"
+
 # Twig Configuration
 twig:
     form_themes:

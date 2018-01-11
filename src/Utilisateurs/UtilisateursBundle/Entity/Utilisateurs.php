@@ -24,4 +24,4 @@ class Utilisateurs extends BaseUser
         parent::__construct();
         // your own logic
     }
-}
+} 

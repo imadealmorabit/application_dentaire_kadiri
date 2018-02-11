@@ -10,6 +10,7 @@
                 <a class="brand" href="{{path('produits_index')}}">Liste des Produits</a>
                 <a class="brand" href="{{path('medecin_index')}}">Liste des Clients</a>
                  <a class="brand" href="{{path('commande_index')}}">Facture</a>
+                  {{ render(controller("KadiriBundle:Produits:recherche")) }}  
             </div>
         </div>
     </div>

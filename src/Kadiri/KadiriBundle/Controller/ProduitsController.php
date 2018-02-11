@@ -4,19 +4,16 @@ namespace Kadiri\KadiriBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Kadiri\KadiriBundle\Entity\Produits;
 use Kadiri\KadiriBundle\Form\ProduitsType;
 
 /**
  * Produits controller.
- *
  */
 class ProduitsController extends Controller
 {
     /**
      * Lists all Produits entities.
-     *
      */
     public function indexAction()
     {
@@ -25,8 +22,8 @@ class ProduitsController extends Controller
         $produits = $em->getRepository('KadiriBundle:Produits')->findAll();
 
         $prixTotal = 0;
-        foreach($produits as $produit) {
-        $prixTotal += $produit->getprixTotal();
+        foreach ($produits as $produit) {
+            $prixTotal += $produit->getprixTotal();
         }
 
         return $this->render('KadiriBundle:produits:index.html.twig', array(
@@ -37,7 +34,6 @@ class ProduitsController extends Controller
 
     /**
      * Creates a new Produits entity.
-     *
      */
     public function newAction(Request $request)
     {
@@ -61,7 +57,6 @@ class ProduitsController extends Controller
 
     /**
      * Finds and displays a Produits entity.
-     *
      */
     public function showAction(Produits $produit)
     {
@@ -75,7 +70,6 @@ class ProduitsController extends Controller
 
     /**
      * Displays a form to edit an existing Produits entity.
-     *
      */
     public function editAction(Request $request, Produits $produit)
     {
@@ -100,7 +94,6 @@ class ProduitsController extends Controller
 
     /**
      * Deletes a Produits entity.
-     *
      */
     public function deleteAction(Request $request, Produits $produit)
     {
@@ -132,8 +125,27 @@ class ProduitsController extends Controller
         ;
     }
 
-    public function rechercheAction(Produits $produit)
+    public function rechercheAction()
     {
-        
+        $form = $this->createForm(ProduitsType::class, new Produits());
+
+        return $this->render('KadiriBundle:Default/recherche/modulesUsed:recherche.html.twig',
+         array('form' => $form->createView()));
+    }
+
+    public function rechercheTraitementAction(Request $request)
+    {
+        $form = $this->createForm(ProduitsType::class, new Produits());
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $produits = $em->getRepository('KadiriBundle:Produits')->recherche($form['designation']->getData());
+            //var_dump($produits);
+            //die();
+        } else {
+            throw $this->createNotFoundException("la page n'existe pas. ");
+        }
+
+        return $this->render('KadiriBundle:Default/produits/layout:produits.html.twig',
+          array('produits' => $produits));
     }
 }

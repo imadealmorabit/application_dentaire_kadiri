@@ -5,7 +5,7 @@ namespace Kadiri\KadiriBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Kadiri\KadiriBundle\Entity\Produits;
-use Kadiri\KadiriBundle\Form\ProduitsType;
+use Kadiri\KadiriBundle\Form\rechercheType;
 
 /**
  * Produits controller.
@@ -127,7 +127,7 @@ class ProduitsController extends Controller
 
     public function rechercheAction()
     {
-        $form = $this->createForm(ProduitsType::class, new Produits());
+        $form = $this->createForm(rechercheType::class, new Produits());
 
         return $this->render('KadiriBundle:Default/recherche/modulesUsed:recherche.html.twig',
          array('form' => $form->createView()));
@@ -135,17 +135,17 @@ class ProduitsController extends Controller
 
     public function rechercheTraitementAction(Request $request)
     {
-        $form = $this->createForm(ProduitsType::class, new Produits());
+        $form = $this->createForm(rechercheType::class, new Produits());
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $produits = $em->getRepository('KadiriBundle:Produits')->recherche($form['designation']->getData());
-            //var_dump($produits);
+            //var_dump($produit);
             //die();
         } else {
             throw $this->createNotFoundException("la page n'existe pas. ");
         }
 
-        return $this->render('KadiriBundle:Default/produits/layout:produits.html.twig',
+        return $this->render('KadiriBundle:produits:presentation.html.twig',
           array('produits' => $produits));
     }
 }
